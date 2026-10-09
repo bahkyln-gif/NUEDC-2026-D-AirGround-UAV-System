@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 400 500" font-family="Microsoft YaHei, sans-serif">
+  <title>场地俯视图 400cm×500cm</title>
+  <!-- 背景 -->
+  <rect x="0" y="0" width="400" height="500" fill="#fdfdfd" stroke="#000" stroke-width="2"/>
+  <!-- 尺寸标注 -->
+  <text x="200" y="20" text-anchor="middle" font-size="14">400cm</text>
+  <text x="20" y="250" text-anchor="middle" font-size="14" transform="rotate(-90 20 250)">500cm</text>
+
+  <!-- 环线轨迹：左右直道150 + 上下半圆R75（跑道形） -->
+  <!-- 直道 -->
+  <line x1="125" y1="175" x2="125" y2="325" stroke="#000" stroke-width="2"/>
+  <line x1="275" y1="175" x2="275" y2="325" stroke="#000" stroke-width="2"/>
+  <!-- 上半圆：中心(200,325) R75，过 B(200,400) -->
+  <path d="M125 325 A75 75 0 0 0 275 325" fill="none" stroke="#000" stroke-width="2"/>
+  <!-- 下半圆：中心(200,175) R75，过 A(200,100) -->
+  <path d="M125 175 A75 75 0 0 1 275 175" fill="none" stroke="#000" stroke-width="2"/>
+
+  <!-- 关键点 -->
+  <circle cx="200" cy="100" r="5" fill="#fff" stroke="#000" stroke-width="1.5"/>
+  <text x="200" y="82" text-anchor="middle" font-size="16" font-weight="bold">A（起点/终点）</text>
+  <circle cx="200" cy="400" r="5" fill="#fff" stroke="#000" stroke-width="1.5"/>
+  <text x="200" y="422" text-anchor="middle" font-size="16" font-weight="bold">B</text>
+  <circle cx="275" cy="325" r="5" fill="#fff" stroke="#000" stroke-width="1.5"/>
+  <text x="292" y="330" font-size="16" font-weight="bold">C</text>
+  <circle cx="275" cy="175" r="5" fill="#fff" stroke="#000" stroke-width="1.5"/>
+  <text x="292" y="180" font-size="16" font-weight="bold">D</text>
+
+  <!-- A 点 40cm 起点黑线 -->
+  <line x1="180" y1="100" x2="220" y2="100" stroke="#000" stroke-width="2"/>
+  <text x="252" y="96" font-size="10">40cm 起点线</text>
+
+  <!-- 起降点 H -->
+  <rect x="111" y="90" width="30" height="30" fill="#fff" stroke="#000" stroke-width="1.5"/>
+  <text x="126" y="80" text-anchor="middle" font-size="16" font-weight="bold">H</text>
+  <text x="126" y="136" text-anchor="middle" font-size="10">起降点</text>
+
+  <!-- 尺寸标注：直道 150cm（左、右） -->
+  <line x1="125" y1="250" x2="75" y2="250" stroke="#555" stroke-width="1"/>
+  <line x1="75" y1="243" x2="75" y2="257" stroke="#555" stroke-width="1"/>
+  <line x1="125" y1="243" x2="125" y2="257" stroke="#555" stroke-width="1"/>
+  <text x="92" y="246" text-anchor="middle" font-size="11" fill="#555">150cm</text>
+  <line x1="275" y1="250" x2="325" y2="250" stroke="#555" stroke-width="1"/>
+  <line x1="325" y1="243" x2="325" y2="257" stroke="#555" stroke-width="1"/>
+  <line x1="275" y1="243" x2="275" y2="257" stroke="#555" stroke-width="1"/>
+  <text x="308" y="246" text-anchor="middle" font-size="11" fill="#555">150cm</text>
+
+  <!-- 半径 75cm（上、下半圆） -->
+  <line x1="200" y1="325" x2="200" y2="400" stroke="#555" stroke-width="1"/>
+  <text x="208" y="370" font-size="11" fill="#555">R=75cm</text>
+  <line x1="200" y1="175" x2="200" y2="100" stroke="#555" stroke-width="1"/>
+  <text x="208" y="132" font-size="11" fill="#555">R=75cm</text>
+
+  <!-- 场地文字说明 -->
+  <text x="12" y="470" font-size="11" fill="#333">图 1 场地俯视图（400cm×500cm，环线周长≈771cm）</text>
+
+  <!-- 降落指示图案小图（图2） -->
+  <g transform="translate(300,455)">
+    <text x="0" y="-8" font-size="11" fill="#333">图 2 小车平台降落指示（局部）</text>
+    <circle cx="45" cy="32" r="25" fill="none" stroke="#000" stroke-width="2"/>
+    <circle cx="45" cy="32" r="15" fill="none" stroke="#000" stroke-width="2"/>
+    <line x1="25" y1="32" x2="65" y2="32" stroke="#000" stroke-width="2"/>
+    <line x1="45" y1="12" x2="45" y2="52" stroke="#000" stroke-width="2"/>
+    <text x="75" y="20" font-size="10">50cm</text>
+    <text x="75" y="48" font-size="10">30cm</text>
+  </g>
+</svg>

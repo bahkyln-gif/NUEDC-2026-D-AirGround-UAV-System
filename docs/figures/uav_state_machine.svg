@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="360" viewBox="0 0 980 360" font-family="Microsoft YaHei, sans-serif">
+  <title>无人机任务状态机</title>
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L9,3 L0,6 Z" fill="#333"/>
+    </marker>
+  </defs>
+  <!-- IDLE -->
+  <rect x="20" y="140" width="100" height="60" rx="10" fill="#eee" stroke="#333" stroke-width="2"/>
+  <text x="70" y="168" text-anchor="middle" font-size="14" font-weight="bold">IDLE</text>
+  <text x="70" y="186" text-anchor="middle" font-size="10">上电自检</text>
+  <!-- TAKEOFF -->
+  <rect x="170" y="140" width="110" height="60" rx="10" fill="#e3f2fd" stroke="#1565c0" stroke-width="2"/>
+  <text x="225" y="168" text-anchor="middle" font-size="14" font-weight="bold">TAKEOFF</text>
+  <text x="225" y="186" text-anchor="middle" font-size="10">垂直起飞→150cm</text>
+  <!-- HOVER -->
+  <rect x="330" y="140" width="110" height="60" rx="10" fill="#e3f2fd" stroke="#1565c0" stroke-width="2"/>
+  <text x="385" y="168" text-anchor="middle" font-size="14" font-weight="bold">HOVER</text>
+  <text x="385" y="186" text-anchor="middle" font-size="10">150±10cm 悬停3s</text>
+  <!-- FORMATION -->
+  <rect x="490" y="140" width="120" height="60" rx="10" fill="#e8f5e9" stroke="#2e7d32" stroke-width="2"/>
+  <text x="550" y="168" text-anchor="middle" font-size="14" font-weight="bold">FORMATION</text>
+  <text x="550" y="186" text-anchor="middle" font-size="10">伴飞（B点前建立）</text>
+  <!-- DELIVERY -->
+  <rect x="660" y="140" width="110" height="60" rx="10" fill="#fff3e0" stroke="#e65100" stroke-width="2"/>
+  <text x="715" y="168" text-anchor="middle" font-size="14" font-weight="bold">DELIVERY</text>
+  <text x="715" y="186" text-anchor="middle" font-size="10">抛投（D点前）</text>
+  <!-- RETURN -->
+  <rect x="820" y="140" width="100" height="60" rx="10" fill="#f3e5f5" stroke="#6a1b9a" stroke-width="2"/>
+  <text x="870" y="168" text-anchor="middle" font-size="14" font-weight="bold">RETURN</text>
+  <text x="870" y="186" text-anchor="middle" font-size="10">返航起降点</text>
+  <!-- LAND -->
+  <rect x="820" y="270" width="100" height="60" rx="10" fill="#fce4ec" stroke="#880e4f" stroke-width="2"/>
+  <text x="870" y="298" text-anchor="middle" font-size="14" font-weight="bold">LAND</text>
+  <text x="870" y="316" text-anchor="middle" font-size="10">降落→DONE</text>
+  <!-- DYNAMIC_LAND / RECHOVER -->
+  <rect x="490" y="270" width="120" height="60" rx="10" fill="#fce4ec" stroke="#c62828" stroke-width="2"/>
+  <text x="550" y="298" text-anchor="middle" font-size="14" font-weight="bold">DYN_LAND</text>
+  <text x="550" y="316" text-anchor="middle" font-size="10">动态降落小车平台</text>
+  <rect x="660" y="270" width="110" height="60" rx="10" fill="#fce4ec" stroke="#c62828" stroke-width="2"/>
+  <text x="715" y="298" text-anchor="middle" font-size="14" font-weight="bold">RECHOVER</text>
+  <text x="715" y="316" text-anchor="middle" font-size="10">平台停留5s复飞</text>
+  <!-- 主链箭头 -->
+  <line x1="120" y1="170" x2="168" y2="170" stroke="#333" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="280" y1="170" x2="328" y2="170" stroke="#333" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="440" y1="170" x2="488" y2="170" stroke="#333" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="610" y1="170" x2="658" y2="170" stroke="#333" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="770" y1="170" x2="818" y2="170" stroke="#333" stroke-width="2" marker-end="url(#arr)"/>
+  <!-- RETURN -> LAND -->
+  <line x1="870" y1="200" x2="870" y2="268" stroke="#333" stroke-width="2" marker-end="url(#arr)"/>
+  <!-- FORMATION -> DYN_LAND -->
+  <path d="M 550 200 C 550 240, 550 240, 550 268" fill="none" stroke="#c62828" stroke-width="2" marker-end="url(#arr)"/>
+  <!-- DYN_LAND -> RECHOVER -->
+  <line x1="612" y1="300" x2="658" y2="300" stroke="#c62828" stroke-width="2" marker-end="url(#arr)"/>
+  <!-- RECHOVER -> RETURN -->
+  <path d="M 715 268 C 715 240, 870 240, 870 238" fill="none" stroke="#c62828" stroke-width="2" stroke-dasharray="6 3" marker-end="url(#arr)"/>
+  <!-- 触发条件注释 -->
+  <text x="145" y="130" text-anchor="middle" font-size="10" fill="#555">收到 UAV_START</text>
+  <text x="305" y="130" text-anchor="middle" font-size="10" fill="#555">达150cm</text>
+  <text x="465" y="130" text-anchor="middle" font-size="10" fill="#555">发现小车</text>
+  <text x="635" y="130" text-anchor="middle" font-size="10" fill="#555">到达小车上空</text>
+  <text x="795" y="130" text-anchor="middle" font-size="10" fill="#555">抛投完成</text>
+  <text x="888" y="250" text-anchor="middle" font-size="10" fill="#555">回起降点上方</text>
+  <text x="565" y="258" text-anchor="middle" font-size="10" fill="#c62828">动态起降任务</text>
+  <text x="630" y="330" text-anchor="middle" font-size="10" fill="#c62828">稳定落地5s</text>
+</svg>

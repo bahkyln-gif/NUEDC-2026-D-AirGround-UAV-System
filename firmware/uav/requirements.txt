@@ -1,0 +1,5 @@
+# 无人机端依赖
+pymavlink>=2.4.40
+opencv-python>=4.8
+numpy>=1.24
+# RPi.GPIO 或 pigpio 按平台选择安装（伴机为树莓派时）
